@@ -28,6 +28,9 @@
         text-align: center; /* Выравнивание текста по центру */
         justify-content: center; /* Центрирование содержимого по горизонтали */
         }
+        a{
+            color: #fff;
+        }
     </style>
 
 </head>
