@@ -1,3 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заголовок страницы</title>
+    <style>
+        body {
+            background-color: #333333;/* Задаем фон страницы */
+        }
+        div { /* Задаем селектор который будет общим для текста */ 
+          color: #FFFFFF;  /* Задаем фон текста */  
+          font-family: "MyCustomFont", Arial, sans-serif; /* Задаем более симпатичный шрифт */
+        }
+
+        .authorization { /*Стиль для блока авторизации */
+        width: 650px; /* Ширина блока */
+        height: 350px; /* Высота блока */
+        background-color: #FF7033; /* Цвет фона */
+        color: #fff; /* Цвет текста */
+        text-align: center; /* Выравнивание текста по центру */
+        line-height: 50px; /* Высота строки для вертикального выравнивания текста */
+        margin: 10% auto; /* Расположение по центру по горизонтали и с отступами */
+        border: 4px solid white; /* Толстая белая рамка */
+        border-radius: 10px; /* Закругленные углы */
+        }
+    </style>
+
+</head>
+<body>
+
 <?php
 
 
@@ -12,9 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  //выполняем проверк
     
         $password = $_POST["password"]; //Аналогично "login"
 
-        echo "$login+$password";
+        echo "<div class = 'authorization'>$login+$password</div>";
     } else {
-        echo "Пожалуйста, введите логин и пароль."; //Обрабатываем ошибку в случае если пользователь не ввел логин и пароль
+        echo "<div class = 'authorization'>Пожалуйста, введите логин и пароль.</div>"; //Обрабатываем ошибку в случае если пользователь не ввел логин и пароль
     }
     //-------------------------------------------------------------------------------------------------------------------------------
     
@@ -23,3 +54,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  //выполняем проверк
 
     }
 ?>
+</body>
