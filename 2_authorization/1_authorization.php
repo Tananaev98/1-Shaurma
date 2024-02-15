@@ -110,8 +110,10 @@ function checkLogPass($log, $pass) {//функция ожидающая пара
             $_SESSION['role'] = $row['role'];//сохраняем роль пользователя для дальнейшей аутентификации на различных сценариях
             //echo "{$_SESSION['fio']} авторизован, уровень прав: {$_SESSION['role']}<br><br>"; //вывод для проверки работы
 
-            echo "<div class = 'authorization'><a href='../0_pattern.php'>Перейти в шаблон страницы</a></div>";
-
+            if($_SESSION['role'] == 'admin'){ header("Location: ../3_admin_panel/0_main_admin_panel.php"); } //Проверяем роль пользователя, если это администратор то направляем 
+            //его на панель администратора
+            if($_SESSION['role'] == 'worker'){ header("Location: ../4_worker_panel/0_main_worker_panel.php"); } //Проверяем роль пользователя, если это работник то направляем 
+            //его на панель работника
             }
             
             
