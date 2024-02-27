@@ -33,7 +33,7 @@ echo "<h3 class='fio_autorization'>{$_SESSION['fio']}       <a href='../2_author
 ?>
 <!-- дальнейший код html не будет отображен в случае не удачной авторизации или аутентификации-->
 <div class = "authorization"><!-- Блок формы -->
-<form action="2.1_update_menu.php" method="post" enctype="multipart/form-data"><!-- создаем форму для последующей отправки в php -->
+<form action="2.1_update_menu.php" method="post" enctype="multipart/form-data" id="formID" ><!-- создаем форму для последующей отправки в php -->
 <h2>Добавление объекта меню</h2><!-- Заголовок формы -->
 <input type="text" id="l1" name="name" placeholder="Название.....(Должно быть уникальным для всего меню)"><!-- Поле для ввода названия нового объекта -->
 <textarea name="description" rows="4" cols="50" placeholder="Описание......"></textarea><br><!-- Поле для ввода описания нового объекта -->
@@ -43,6 +43,32 @@ echo "<h3 class='fio_autorization'>{$_SESSION['fio']}       <a href='../2_author
 </form>
 </div>
 
+<script>
+//----------------------------------------C Помощью js предотавращаем вставку лишних пробелов в имени файла---------------------------------------------    
+// Получаем ссылку на форму
+var form = document.getElementById("formID");
+
+// Добавляем обработчик события submit
+form.addEventListener("submit", function(event) {
+    // Получаем значение из поля ввода
+    var userInput = document.getElementById("l1").value;
+
+    // Удаляем пробелы в начале и в конце строки
+    userInput = userInput.trim();
+
+    // Удаляем дублирующиеся пробелы
+    userInput = userInput.replace(/\s+/g, ' ');
+
+    // Устанавливаем очищенное значение обратно в поле ввода
+    document.getElementById("l1").value = userInput;
+    
+    // Теперь можно явно отправить форму на сервер
+    form.submit();
+    
+    // Далее можно выполнить другие действия, например, отправить данные на сервер с помощью JavaScript или выполнить другие операции.
+});
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+</script>    
 
 <style>
         body {
